@@ -22,7 +22,8 @@ jobs:
           cache: "yarn"
           cache-dependency-path: |
             yarn.lock
-            **/yarn.lock
+            apps/**/package.json
+            packages/**/package.json
 
       - name: Install dependencies
         run: yarn
