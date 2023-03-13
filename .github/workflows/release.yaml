@@ -38,6 +38,9 @@ jobs:
       - name: TMP Status Before
         run: yarn changeset status
 
+      - name: changeset tag
+        run: yarn changeset tag
+
       - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1
