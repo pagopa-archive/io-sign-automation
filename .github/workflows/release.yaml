@@ -43,13 +43,13 @@ jobs:
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          publish: yarn changeset tag && yarn chageset publish
+          #publish: yarn changeset tag && yarn chageset publish
           createGithubReleases: true
-
-      - name: TMP Status After
-        run: yarn changeset status
 
       - name: Publish
         # if: steps.changesets.outputs.hasChangesets
         # You can do something when a publish should happen.
         run: echo "${{toJSON(steps.changesets.outputs)}}"
+
+      - name: TMP Status After
+        run: yarn changeset status
