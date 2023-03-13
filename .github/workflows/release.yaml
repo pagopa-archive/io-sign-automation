@@ -22,6 +22,7 @@ jobs:
           cache: "yarn"
           cache-dependency-path: |
             yarn.lock
+            package.json
             apps/**/package.json
             packages/**/package.json
 
@@ -34,7 +35,7 @@ jobs:
       - name: Build all projects
         run: yarn build
 
-      - name: Build all projects
+      - name: Build all packages
         run: yarn workspaces foreach run build:package
 
       - name: Create Release Pull Request
@@ -43,3 +44,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           publish: yarn publish
           createGithubReleases: true
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: echo ${{steps.changesets.outputs.publishedPackages}}
