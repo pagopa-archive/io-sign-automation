@@ -6,7 +6,7 @@
     "format": "turbo run format --no-daemon",
     "build": "turbo run build --no-daemon",
     "code-review": "turbo run typecheck lint test",
-    "publish": "changeset publish"
+    "publish": "changeset publish && echo \"New tag:\""
   },
   "workspaces": [
     "packages/*",
