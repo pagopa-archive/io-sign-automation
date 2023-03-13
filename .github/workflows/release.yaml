@@ -43,6 +43,6 @@ jobs:
           createGithubReleases: true
 
       - name: Publish
-        if: steps.changesets.outputs.hasChangesets == 'false'
+        if: steps.changesets.outputs.hasChangesets
         # You can do something when a publish should happen.
         run: echo ${{steps.changesets.outputs.publishedPackages}}
