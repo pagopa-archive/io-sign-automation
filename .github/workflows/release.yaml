@@ -38,16 +38,13 @@ jobs:
       - name: TMP Status Before
         run: yarn changeset status
 
-      - name: changeset tag
-        run: yarn changeset tag
-
       - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1
+        with:
+          publish: yarn changeset tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          publish: echo "New tag:"
-          createGithubReleases: true
 
       - name: Git status
         run: git status
