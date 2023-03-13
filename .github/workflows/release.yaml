@@ -42,6 +42,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
+          # Include this to create GitHub releases and Git tags
           publish: yarn changeset tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
