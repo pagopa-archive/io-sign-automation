@@ -18,8 +18,11 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: '.node-version'
           cache: "yarn"
+          cache-dependency-path: |
+            yarn.lock
+            **/yarn.lock
 
       - name: Install dependencies
         run: yarn
@@ -28,3 +31,4 @@ jobs:
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          publish: yarn publish
