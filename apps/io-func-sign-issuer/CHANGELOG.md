@@ -1,5 +1,11 @@
 # io-func-sign-issuer
 
+## 0.11.1
+
+### Patch Changes
+
+- 0cdbb45: Added bibbidi
+
 ## 0.11.0
 
 ### Minor Changes
