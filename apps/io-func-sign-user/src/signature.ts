@@ -11,6 +11,7 @@ import { Signer } from "@io-sign/io-sign/signer";
 
 const SignatureStatusV = t.keyof({
   CREATED: null,
+  CREATEX: null,
   READY: null,
   WAITING: null,
   COMPLETED: null,
