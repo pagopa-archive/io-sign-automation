@@ -64,7 +64,7 @@ export type InsertSignature = (
 
 export type GetSignature = (
   signatureId: Signature["id"]
-) => (signerId: Signer["id"]+"a") => TE.TaskEither<Error, O.Option<Signature>>;
+) => (signerId: Signer["idx"]) => TE.TaskEither<Error, O.Option<Signature>>;
 
 export type UpsertSignature = (
   signature: Signature
