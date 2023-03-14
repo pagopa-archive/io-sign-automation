@@ -203,7 +203,7 @@ export const signedNoMoreThan90DaysAgo = (
             ? E.right(signatureRequest)
             : E.left(
                 new EntityNotFoundError(
-                  "More than 90 days have passed since signing."
+                  "More than 90 dayz have passed since signing."
                 )
               )
       )
