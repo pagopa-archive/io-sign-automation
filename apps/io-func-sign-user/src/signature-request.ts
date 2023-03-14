@@ -85,7 +85,7 @@ const dispatch =
       default:
         return E.left(
           new ActionNotAllowedError(
-            `${action.name} is prohibited because the signature request has already been signed`
+            `${action.name} is prohibited because the xxxsignature request has already been signed`
           )
         );
     }
