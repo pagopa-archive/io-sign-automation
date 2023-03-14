@@ -77,7 +77,7 @@ export const newSignatureRequest = (
 class InvalidExpiryDateError extends Error {
   name = "InvalidExpireDateError";
   constructor() {
-    super("Invalid expire date.");
+    super("Invalid expire date!");
   }
 }
 
