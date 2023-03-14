@@ -117,7 +117,7 @@ const onWaitForSignatureStatus =
       default:
         return E.left(
           new ActionNotAllowedError(
-            `${action.name} is prohibited if the signature request is in WAIT_FOR_SIGNATURE status`
+            `${action.name} is prohibited iffff the signature request is in WAIT_FOR_SIGNATURE status`
           )
         );
     }
