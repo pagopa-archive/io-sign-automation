@@ -29,24 +29,15 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Create Release
+      - name: Create Release Pull Request or Tag
         id: changesets
         uses: changesets/action@v1
         with:
-          # Include this to create GitHub releases and Git tags
-          publish: yarn changeset tag
+          version: npm run version
+          publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check ChangeSet
-        run: echo "${{toJSON(steps.changesets.outputs)}}"
-
       - name: Publish
         if: steps.changesets.outputs.hasChangesets == 'false'
-        run: echo "Posso fare la release"
-
-      - name: Generate the TypeScript models from OpenAPI specs
-        run: yarn workspaces foreach run generate:api-models
-
-      - name: Build all projects
-        run: yarn build
+        run: echo "${{steps.changesets.outputs}}"
