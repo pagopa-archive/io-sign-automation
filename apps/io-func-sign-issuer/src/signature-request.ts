@@ -82,7 +82,7 @@ class InvalidExpiryDateError extends Error {
 }
 
 const documentNotFoundError = new EntityNotFoundError(
-  "The specified document does not exists."
+  "The specified document does not exist!"
 );
 
 const isExpiryDateValid = (expiryDate: Date) => (request: SignatureRequest) =>
