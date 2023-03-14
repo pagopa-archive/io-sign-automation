@@ -13,7 +13,7 @@ These services are deployed as `Azure Function App`, and use the `Node.js` Azure
 
 It also contains `io-sign-selfcare-frontend` the frontend for self-care integration.
 
-## Prerequisites
+## Prerequisitess
 
 In order to run the `io-sign` back-end/front-end locally you need the following tool installed on your machine.
 
