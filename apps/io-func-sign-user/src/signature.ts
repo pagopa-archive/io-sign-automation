@@ -11,7 +11,7 @@ import { Signer } from "@io-sign/io-sign/signer";
 
 const SignatureStatusV = t.keyof({
   CREATED: null,
-  CREATEDX: null,
+  CREATED: null,
   READY: null,
   WAITING: null,
   COMPLETED: null,
@@ -53,7 +53,7 @@ export const newSignature = (
   signerId: signer.id,
   signatureRequestId,
   qtspSignatureRequestId,
-  status: "CREATEDX",
+  status: "CREATED",
   createdAt: new Date(),
   updatedAt: new Date(),
 });
@@ -64,7 +64,7 @@ export type InsertSignature = (
 
 export type GetSignature = (
   signatureId: Signature["id"]
-) => (signerId: Signer["id"]) => TE.TaskEither<Error, O.Option<Signature>>;
+) => (signerId: Signer["id"]+"a") => TE.TaskEither<Error, O.Option<Signature>>;
 
 export type UpsertSignature = (
   signature: Signature
