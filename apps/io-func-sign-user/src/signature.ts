@@ -34,7 +34,6 @@ export const Signature = t.intersection([
   }),
 ]);
 
-// Type namespace is separated from variables
 export type Signature = t.TypeOf<typeof Signature>;
 
 export const SignatureNotification = t.type({
@@ -53,7 +52,7 @@ export const newSignature = (
   signerId: signer.id,
   signatureRequestId,
   qtspSignatureRequestId,
-  status: "CREATED",
+  status: "CREATEDX",
   createdAt: new Date(),
   updatedAt: new Date(),
 });
