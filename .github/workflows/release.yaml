@@ -35,9 +35,22 @@ jobs:
         with:
           version: npm run version
           publish: npm run release
+          commit: "ci(changesets): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        run: echo "${{toJSON(steps.changesets.outputs)}}"
+      - name: Release output
+        run: |
+          echo 'published=${{steps.changesets.outputs.published}}' >> "$GITHUB_OUTPUT"
+          echo 'publishedPackages=${{toJSON(steps.changesets.outputs.publishedPackages)}}' >> "$GITHUB_OUTPUT"
+
+  publish:
+    name: Publish
+    needs: [ release ]
+    if: ${{ needs.release.outputs.published }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: ${{fromJson(needs.release.outputs.publishedPackages)}}
+    steps:
+    - run: echo "Publishing ${{ matrix.package.name }} with version ${{ matrix.package.version }}"
