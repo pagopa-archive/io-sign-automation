@@ -1171,7 +1171,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@io-sign/io-sign@^0.9.0, @io-sign/io-sign@workspace:packages/io-sign":
+"@io-sign/io-sign@^1.0.0, @io-sign/io-sign@workspace:packages/io-sign":
   version: 0.0.0-use.local
   resolution: "@io-sign/io-sign@workspace:packages/io-sign"
   dependencies:
@@ -6487,7 +6487,7 @@ __metadata:
     "@azure/functions": ^3.2.0
     "@azure/storage-blob": ^12.12.0
     "@azure/storage-queue": ^12.11.0
-    "@io-sign/io-sign": ^0.9.0
+    "@io-sign/io-sign": ^1.0.0
     "@jest/globals": ^29.3.1
     "@pagopa/eslint-config": ^3.0.0
     "@pagopa/handler-kit": ^0.5.1
@@ -6519,7 +6519,7 @@ __metadata:
     "@azure/cosmos": ^3.17.2
     "@azure/storage-blob": ^12.12.0
     "@azure/storage-queue": ^12.11.0
-    "@io-sign/io-sign": ^0.9.0
+    "@io-sign/io-sign": ^1.0.0
     "@jest/globals": ^29.3.1
     "@pagopa/eslint-config": ^3.0.0
     "@pagopa/handler-kit": ^0.4.2
