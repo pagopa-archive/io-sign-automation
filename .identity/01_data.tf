@@ -12,7 +12,7 @@ data "azurerm_resource_group" "dashboards" {
 }
 
 data "azurerm_storage_account" "tfstate_app" {
-  name                = "tfapp${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}"
+  name                = "tfappdeviot"
   resource_group_name = "terraform-state-rg"
 }
 

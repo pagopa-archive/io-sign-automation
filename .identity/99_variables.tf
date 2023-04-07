@@ -42,7 +42,7 @@ variable "github" {
   description = "GitHub Organization and repository name"
   default = {
     org        = "pagopa"
-    repository = "io-sign"
+    repository = "io-sign-automation"
   }
 }
 
