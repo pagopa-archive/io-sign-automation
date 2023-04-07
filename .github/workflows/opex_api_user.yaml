@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      
     paths:
       - 'apps/io-func-sign-user/openapi.yaml'
       - '.github/workflows/opex_api_user.yml'
