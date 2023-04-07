@@ -1,6 +1,6 @@
 domain    = "sign"
-env       = "prod"
-env_short = "p"
+env       = "dev"
+env_short = "d"
 prefix    = "io"
 
 environment_cd_roles = {
@@ -8,7 +8,7 @@ environment_cd_roles = {
     "Reader",
   ]
   resource_groups = {
-    io-p-sign-backend-rg = [
+    io-d-sign-backend-rg = [
       "Website Contributor",
     ]
   }
