@@ -1,7 +1,7 @@
 oa3_spec: apps/io-func-sign-issuer/openapi.yaml
 name: opex_api_issuer
 location: West Europe
-timespan: 10m
+timespan: 11m
 data_source: /subscriptions/ec285037-c673-4f58-b594-d7c480da4e8b/resourceGroups/io-p-rg-internal/providers/Microsoft.ApiManagement/service/io-p-apim-api
 resource_type: api-management
 action_groups:
