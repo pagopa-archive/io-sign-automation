@@ -1,0 +1,43 @@
+name: Opex Dashboard api_issuer
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'apps/io-func-sign-issuer/openapi.yaml'
+      - '.github/workflows/opex_api_issuer.yml'
+      - '.opex/api_issuer/**'
+
+env:
+  API_NAME: api_issuer
+  ENV_NAME: prod
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  opex:
+    runs-on: ubuntu-22.04
+    environment: prod-opex
+    steps:
+      - name: Checkout
+        id: checkout
+        # from https://github.com/actions/checkout/commits/main
+        uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      # from https://github.com/pagopa/opex-dashboard-azure-action/
+      - uses: pagopa/opex-dashboard-azure-action@v1.0.3
+        with:
+          environment: ${{ env.ENV_NAME }}
+          api-name: ${{ env.API_NAME }}
+          config: .opex/${{ env.API_NAME }}/env/${{ env.ENV_NAME }}/config.yaml
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          # from https://github.com/pagopa/opex-dashboard-azure-action/pkgs/container/opex-dashboard-azure-action
+          docker-version: sha256:d9465f04e469c8f65bb1fb21cb9688508c64fda75495f552e858fb5a9580be90
