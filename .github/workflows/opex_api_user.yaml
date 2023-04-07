@@ -11,7 +11,7 @@ on:
 
 env:
   API_NAME: api_user
-  ENV_NAME: prod
+  ENV_NAME: dev
 
 permissions:
   id-token: write
@@ -20,7 +20,7 @@ permissions:
 jobs:
   opex:
     runs-on: ubuntu-22.04
-    environment: prod-opex
+    environment: dev-opex
     steps:
       - name: Checkout
         id: checkout

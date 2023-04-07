@@ -18,19 +18,19 @@ resource "azuread_application_federated_identity_credential" "environment_opex" 
 resource "azurerm_role_assignment" "environment_opex_subscription" {
   scope                = data.azurerm_subscription.current.id
   role_definition_name = "Reader"
-  principal_id         = azuread_service_principal.master.object_id
+  principal_id         = azuread_service_principal.environment_opex.object_id
 }
 
 resource "azurerm_role_assignment" "environment_opex_storage_account_tfstate_app" {
   scope                = data.azurerm_storage_account.tfstate_app.id
   role_definition_name = "Contributor"
-  principal_id         = azuread_service_principal.master.object_id
+  principal_id         = azuread_service_principal.environment_opex.object_id
 }
 
 resource "azurerm_role_assignment" "environment_opex_resource_group_dashboards" {
   scope                = data.azurerm_resource_group.dashboards.id
   role_definition_name = "Contributor"
-  principal_id         = azuread_service_principal.master.object_id
+  principal_id         = azuread_service_principal.environment_opex.object_id
 }
 
 output "azure_environment_opex" {

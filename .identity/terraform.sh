@@ -18,7 +18,7 @@ fi
 
 # shellcheck source=./env/prod/backend.ini
 source "./env/$env/backend.ini"
-az account set -s "${subscription}"
+az account set -s cloudgaap-development
 
 export TF_VAR_github_token="${GITHUB_TOKEN}"
 
