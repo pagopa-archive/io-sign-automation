@@ -11,7 +11,6 @@ on:
 
 env:
   API_NAME: api_support
-  ENV_NAME: dev
 
 permissions:
   id-token: write
@@ -21,23 +20,26 @@ jobs:
   opex:
     runs-on: ubuntu-22.04
     environment: dev-opex
+    strategy:
+      matrix:
+        environment: [prod]
     steps:
       - name: Checkout
         id: checkout
         # from https://github.com/actions/checkout/commits/main
-        uses: actions/checkout@1f9a0c22da41e6ebfa534300ef656657ea2c6707
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
         with:
           persist-credentials: false
           fetch-depth: 0
 
       # from https://github.com/pagopa/opex-dashboard-azure-action/
-      - uses: pagopa/opex-dashboard-azure-action@v1.0.3
+      - uses: pagopa/opex-dashboard-azure-action@v1.1.0
         with:
-          environment: ${{ env.ENV_NAME }}
+          environment: ${{ matrix.environment }}
           api-name: ${{ env.API_NAME }}
-          config: .opex/${{ env.API_NAME }}/env/${{ env.ENV_NAME }}/config.yaml
+          config: .opex/${{ env.API_NAME }}/env/${{ matrix.environment }}/config.yaml
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           # from https://github.com/pagopa/opex-dashboard-azure-action/pkgs/container/opex-dashboard-azure-action
-          docker-version: sha256:d9465f04e469c8f65bb1fb21cb9688508c64fda75495f552e858fb5a9580be90
+          docker-version: sha256:7e454c1892b2aaf3717782c07a2fa01504db5cc7d07979fae863dfc00a9f0173
