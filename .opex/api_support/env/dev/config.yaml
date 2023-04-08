@@ -1,4 +1,4 @@
-oa3_spec: apps/io-func-sign-support/openapi.yaml
+oa3_spec: ./apps/io-func-sign-support/openapi.yaml
 name: opex_api_support
 location: West Europe
 timespan: 10m

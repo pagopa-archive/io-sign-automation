@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'apps/io-func-sign-support/openapi.yaml'
-      - '.github/workflows/opex_api_support.yml'
+      - '.github/workflows/opex_api_support.yaml'
       - '.opex/api_support/**'
 
 env:
@@ -22,7 +22,7 @@ jobs:
     environment: dev-opex
     strategy:
       matrix:
-        environment: [prod]
+        environment: [dev]
     steps:
       - name: Checkout
         id: checkout

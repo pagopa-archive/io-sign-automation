@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
+
     paths:
       - 'apps/io-func-sign-user/openapi.yaml'
-      - '.github/workflows/opex_api_user.yml'
+      - '.github/workflows/opex_api_user.yaml'
       - '.opex/api_user/**'
 
 env:
@@ -22,7 +23,7 @@ jobs:
     environment: dev-opex
     strategy:
       matrix:
-        environment: [prod]
+        environment: [dev]
     steps:
       - name: Checkout
         id: checkout
